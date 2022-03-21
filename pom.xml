@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.atguigu</groupId>
+    <artifactId>syt_parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>syt_parent</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
+        <cloud.version>Hoxton.RELEASE</cloud.version>
+        <alibaba.version>2.2.0.RELEASE</alibaba.version>
+        <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <mysql.version>5.1.46</mysql.version>
+        <swagger.version>2.7.0</swagger.version>
+        <jwt.version>0.7.0</jwt.version>
+        <fastjson.version>1.2.29</fastjson.version>
+        <httpclient.version>4.5.1</httpclient.version>
+        <easyexcel.version>2.2.0-beta2</easyexcel.version>
+        <aliyun.version>4.1.1</aliyun.version>
+        <oss.version>3.9.1</oss.version>
+        <jodatime.version>2.10.1</jodatime.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
