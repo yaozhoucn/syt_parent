@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-util</artifactId>
+    <artifactId>service_util</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,7 +24,7 @@
 <!--    </dependency>-->
         <dependency>
             <groupId>com.atguigu</groupId>
-            <artifactId>common-util</artifactId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     <!-- redis -->
@@ -38,6 +38,10 @@
         <artifactId>commons-pool2</artifactId>
         <version>2.6.0</version>
     </dependency>
-</dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

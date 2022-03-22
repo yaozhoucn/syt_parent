@@ -1,6 +1,6 @@
 package com.atguigu.syt.common.utils;
 
-import com.atguigu.yygh.common.helper.JwtHelper;
+import com.atguigu.syt.common.helper.JwtHelper;
 
 import javax.servlet.http.HttpServletRequest;
 
