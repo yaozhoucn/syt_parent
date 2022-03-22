@@ -29,10 +29,14 @@ public class HospitalSetController {
     //1 查询医院设置表所有信息
     @ApiOperation(value = "获取所有医院设置")
     @GetMapping("findAll")
-    public Result findAllHospitalSet() {
+/*    public Result findAllHospitalSet() {
         //调用service的方法
         List<HospitalSet> list = hospitalSetService.list();
         return Result.ok(list);
+    }*/
+    public List<HospitalSet> findAllHospitalSet(){
+        List<HospitalSet> list = hospitalSetService.list();
+        return list;
     }
 
     //2 逻辑删除医院设置
