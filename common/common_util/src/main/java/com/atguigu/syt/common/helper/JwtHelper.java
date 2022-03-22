@@ -5,6 +5,9 @@ import org.springframework.util.StringUtils;
 
 import java.util.Date;
 
+/**
+ * @author HANG
+ */
 public class JwtHelper {
 
     //过期时间
@@ -27,7 +30,9 @@ public class JwtHelper {
 
     //根据token字符串得到用户id
     public static Long getUserId(String token) {
-        if(StringUtils.isEmpty(token)) return null;
+        if(StringUtils.isEmpty(token)) {
+            return null;
+        }
 
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(tokenSignKey).parseClaimsJws(token);
         Claims claims = claimsJws.getBody();
@@ -37,7 +42,9 @@ public class JwtHelper {
 
     //根据token字符串得到用户名称
     public static String getUserName(String token) {
-        if(StringUtils.isEmpty(token)) return "";
+        if(StringUtils.isEmpty(token)) {
+            return "";
+        }
 
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(tokenSignKey).parseClaimsJws(token);
         Claims claims = claimsJws.getBody();
