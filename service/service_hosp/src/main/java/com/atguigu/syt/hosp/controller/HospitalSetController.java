@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -115,5 +116,31 @@ public class HospitalSetController {
     public Result batchRemoveHospitalSet(@RequestBody List<Long> idList) {
         hospitalSetService.removeByIds(idList);
         return Result.ok();
+    }
+
+    //8 设位置医院锁定和解锁
+    @PutMapping("lockHospitalSet/{id}/{status}")
+    public Result lockHospitalSet(@PathVariable Long id,@PathVariable Integer status){
+        //根据id查询医院设置信息
+        HospitalSet hospitalSet = hospitalSetService.getById(id);
+        //设置状态
+        hospitalSet.setStatus(status);
+        //调用方法修改
+        boolean b = hospitalSetService.updateById(hospitalSet);
+        return Result.ok();
+    }
+    //9.发送签名密钥
+    @PutMapping("sendKey/{id}")
+    public Result sendHospitalSecret(@PathVariable Long id){
+        //根据id查询医院信息
+        HospitalSet hospitalSet = hospitalSetService.getById(id);
+        String signKey = hospitalSet.getSignKey();
+        String hoscode = hospitalSet.getHoscode();
+        //TODO发送短信
+        ArrayList<String> hospitalList = new ArrayList<>();
+        hospitalList.add(signKey);
+        hospitalList.add(hoscode);
+
+        return Result.ok(hospitalList);
     }
 }
