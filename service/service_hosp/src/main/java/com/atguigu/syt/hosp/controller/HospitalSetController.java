@@ -58,6 +58,7 @@ public class HospitalSetController {
                                   @PathVariable long limit,
                                   @RequestBody
                                           (required = false) HospitalSetQueryVo hospitalSetQueryVo) {
+        //@RequestBody则前端以json的方式进行传值，required = false hospitalSetQueryVo数据可以为空，为空则查询所有值
         //创建page对象，传递当前页，每页记录数
         Page<HospitalSet> page = new Page<>(current,limit);
         //构建条件
@@ -68,7 +69,8 @@ public class HospitalSetController {
             wrapper.like("hosname",hospitalSetQueryVo.getHosname());
         }
         if(!StringUtils.isEmpty(hoscode)) {
-            wrapper.eq("hoscode",hospitalSetQueryVo.getHoscode());
+            //wrapper.eq("hoscode",hospitalSetQueryVo.getHoscode());
+            QueryWrapper<HospitalSet> eq = wrapper.eq("hoscode", hospitalSetQueryVo.getHoscode());
         }
         //调用方法实现分页查询
         Page<HospitalSet> pageHospitalSet = hospitalSetService.page(page, wrapper);
