@@ -87,6 +87,7 @@ public class HospitalSetController {
         //调用service
         boolean save = hospitalSetService.save(hospitalSet);
         if(save) {
+            //return Result.ok(hospitalSet);
             return Result.ok();
         } else {
             return Result.fail();
