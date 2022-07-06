@@ -8,6 +8,8 @@ import com.atguigu.syt.vo.cmn.DictEeVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +26,7 @@ import java.util.List;
 @Service
 public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements DictService {
     //根据数据id查询子数据列表
+    //@Cacheable(value = "dict",keyGenerator = "keyGenerator")
     @Override
     public List<Dict> findChlidData(Long id) {
         QueryWrapper<Dict> queryWrapper = new QueryWrapper<>();
@@ -38,7 +41,15 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         return dictList;
     }
     //导出数据字典接口
+
+
+    /**
+     * 导入
+     * allEntries = true: 方法调用后清空所有缓存
+     * @param
+     */
     @Override
+    @CacheEvict(value = "dict",allEntries = true)
     public void exportData(HttpServletResponse response) {
         try {
             //设置下载信息
